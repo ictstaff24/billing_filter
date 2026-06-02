@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing Filter Viewer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section class="panel">
+      <div class="top-bar">
+        <div>
+          <h1>Billing Filter Viewer</h1>
+          <p>Upload an Excel file, choose a sheet, then filter data by header values.</p>
+        </div>
+        <label class="theme-toggle" title="Day / Night mode">
+          <input id="theme-toggle" type="checkbox" />
+          <span class="toggle-slider"></span>
+          <span class="toggle-text">Night</span>
+        </label>
+      </div>
+
+      <div class="upload-actions-row">
+        <label id="drop-zone" class="file-upload">
+          <span class="upload-title">Upload Excel file</span>
+          <small>Click here or drag & drop .xlsx / .xls file</small>
+          <input id="file-input" type="file" accept=".xlsx,.xls" />
+        </label>
+        <button id="download-filter" class="download-btn" disabled>Download filtered sheet</button>
+      </div>
+
+      <div id="status-message" class="status-message">Select or drop an Excel file to begin.</div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="sheet-select">Select sheet <span class="required">*</span></label>
+          <select id="sheet-select" disabled>
+            <option value="">Choose sheet</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="header-select">Filter field (header)</label>
+          <select id="header-select" disabled>
+            <option value="">Choose a field</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="common-filter">Common filter</label>
+          <select id="common-filter" disabled>
+            <option value="">Choose common field</option>
+            <option value="Potential No">Potential No</option>
+            <option value="Project">Project</option>
+            <option value="Month">Month</option>
+            <option value="Year">Year</option>
+          </select>
+        </div>
+        <div class="control-group filter-value-group">
+          <label for="filter-value">Filter value</label>
+          <input id="filter-value" type="text" list="filter-value-list" placeholder="Type and select exact value" disabled />
+          <datalist id="filter-value-list"></datalist>
+        </div>
+        <div class="control-group action-buttons">
+          <button id="apply-filter" class="primary" disabled>Apply filter</button>
+          <button id="reset-filter" class="secondary" disabled>Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary-panel">
+      <div class="table-header">
+        <h2>Summary</h2>
+      </div>
+      <div id="summary-container" class="summary-container">
+        <p class="summary-empty">Apply a filter or select a sheet to display summary details.</p>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-header">
+        <h2>Sheet data</h2>
+        <span id="table-info">No data loaded.</span>
+      </div>
+      <div class="table-scroll-controls" aria-label="Horizontal table scroll controls">
+        <button id="scroll-left" class="scroll-btn" type="button" disabled>← Left</button>
+        <button id="scroll-right" class="scroll-btn" type="button" disabled>Right →</button>
+      </div>
+      <div id="table-wrapper" class="table-wrapper">
+        <table id="data-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="xlsx.0.18.5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
 

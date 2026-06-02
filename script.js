@@ -177,7 +177,7 @@ function arrayBufferToBinary(buffer) {
 function showSheet(sheetName) {
   currentSheetName = sheetName;
   const worksheet = workbook.Sheets[sheetName];
-  const rows = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
+  const rows = XLSX.utils.sheet_to_json(worksheet, { defval: '', raw: false, dateNF: 'yyyy-mm-dd' });
   currentRows = rows;
   currentHeaders = rows.length ? Object.keys(rows[0]) : [];
 
@@ -251,12 +251,12 @@ fileInput.addEventListener('change', (event) => {
   reader.onload = (e) => {
     try {
       const result = e.target.result;
-      let readOptions = { type: 'array' };
+      let readOptions = { type: 'array', cellStyles: true, cellNF: true, cellDates: true };
       let workbookData = result;
 
       if (typeof result === 'string') {
         workbookData = result;
-        readOptions = { type: 'binary' };
+        readOptions = { type: 'binary', cellStyles: true, cellNF: true, cellDates: true };
       }
 
       workbook = XLSX.read(workbookData, readOptions);

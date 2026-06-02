@@ -1,0 +1,230 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f7fb;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.panel,
+.table-panel {
+  background: #ffffff;
+  border: 1px solid #dbe4ef;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+
+h1,
+h2 {
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 20px;
+  color: #475569;
+}
+
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px dashed #94a3b8;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #334155;
+  margin-bottom: 24px;
+}
+
+.file-upload input {
+  display: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+input,
+select,
+button {
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+input:disabled,
+select:disabled {
+  background: #f1f5f9;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button.primary {
+  background: #2563eb;
+  color: white;
+}
+
+button.secondary {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+#status-message {
+  margin-bottom: 20px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+#table-info {
+  color: #64748b;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+thead {
+  background: #0f172a;
+  color: white;
+}
+
+th,
+td {
+  border: 1px solid #e2e8f0;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.required {
+  color: #dc2626;
+}
+
+@media (max-width: 640px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summary-panel {
+  background: #ffffff;
+  border: 1px solid #dbe4ef;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+
+.summary-container {
+  display: grid;
+  gap: 16px;
+}
+
+.summary-card {
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.summary-card-content,
+.summary-card-right {
+  display: grid;
+  gap: 8px;
+}
+
+.summary-card p {
+  margin: 0;
+  color: #0f172a;
+}
+
+.summary-card p span {
+  font-weight: 700;
+}
+
+.summary-card-right {
+  border-left: 1px solid #cbd5e1;
+  padding-left: 16px;
+}
+
+.summary-card-right p {
+  font-size: 0.95rem;
+}
+
+.summary-empty {
+  margin: 0;
+  color: #64748b;
+}
+
+@media (max-width: 800px) {
+  .summary-card {
+    grid-template-columns: 1fr;
+  }
+  .summary-card-right {
+    border-left: none;
+    padding-left: 0;
+  }
+}

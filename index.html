@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel Filter Viewer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section class="panel">
+      <h1>Excel Filter Viewer</h1>
+      <p>Upload an Excel file, choose a sheet, then filter data by header values.</p>
+
+      <label class="file-upload">
+        <span>Upload Excel file</span>
+        <input id="file-input" type="file" accept=".xlsx,.xls" />
+      </label>
+
+      <div id="status-message" class="status-message">Select an Excel file to begin.</div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="sheet-select">Select sheet <span class="required">*</span></label>
+          <select id="sheet-select" disabled>
+            <option value="">Choose sheet</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="header-select">Filter field (header)</label>
+          <select id="header-select" disabled>
+            <option value="">Choose a field</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="common-filter">Common filter</label>
+          <select id="common-filter" disabled>
+            <option value="">Choose common field</option>
+            <option value="Potential No">Potential No</option>
+            <option value="Project">Project</option>
+            <option value="Month">Month</option>
+            <option value="Year">Year</option>
+          </select>
+        </div>
+        <div class="control-group full-width">
+          <label for="filter-value">Filter value</label>
+          <input id="filter-value" type="text" placeholder="Enter value to filter exactly or partially" disabled />
+        </div>
+        <div class="control-group full-width">
+          <button id="apply-filter" class="primary" disabled>Apply filter</button>
+          <button id="reset-filter" class="secondary" disabled>Reset</button>
+          <button id="download-filter" class="secondary" disabled>Download filtered sheet</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary-panel">
+      <div class="table-header">
+        <h2>Summary</h2>
+      </div>
+      <div id="summary-container" class="summary-container">
+        <p class="summary-empty">Apply a filter or select a sheet to display summary details.</p>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-header">
+        <h2>Sheet data</h2>
+        <span id="table-info">No data loaded.</span>
+      </div>
+      <div class="table-wrapper">
+        <table id="data-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="xlsx.0.18.5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
